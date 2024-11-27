@@ -1,0 +1,23 @@
+﻿@model MachineTest.Models.Product
+
+<h2>Create Product</h2>
+<h4 style="color : red">@ViewBag.Error</h4>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductName)
+        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CategoryId, "Category")
+        @Html.DropDownList("CategoryId", (SelectList)ViewBag.Categories, "Select a Category", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CategoryId)
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+}
+

@@ -1,0 +1,23 @@
+﻿@model MachineTest.Models.Product
+
+<h2>Delete Product</h2>
+
+<p>Are you sure you want to delete the following product?</p>
+
+<table class="table">
+    <tr>
+        <th>Product ID</th>
+        <td>@Model.ProductId</td>
+    </tr>
+    <tr>
+        <th>Product Name</th>
+        <td>@Model.ProductName</td>
+    </tr>
+   
+</table>
+
+@using (Html.BeginForm())
+{
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+}

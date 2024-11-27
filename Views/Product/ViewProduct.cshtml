@@ -1,0 +1,17 @@
+﻿@model MachineTest.Models.Product
+
+<h2>Product Details</h2>
+
+<div>
+    <h3>@Model.ProductName</h3>
+    <p><strong>Product ID:</strong> @Model.ProductId</p>
+
+   
+    <p><strong>Category:</strong> @Model.Category.CategoryName</p>
+    <p><strong>Category ID:</strong> @Model.Category.CategoryId</p>
+
+   
+</div>
+
+
+<a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Back to Products</a>

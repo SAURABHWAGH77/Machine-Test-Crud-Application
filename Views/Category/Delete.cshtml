@@ -1,0 +1,11 @@
+﻿@model MachineTest.Models.Category
+
+<h2>Delete Category</h2>
+
+<p>Are you sure you want to delete the category "<strong>@Model.CategoryName</strong>"?</p>
+
+@using (Html.BeginForm())
+{
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+}

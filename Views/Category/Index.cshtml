@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MachineTest.Models.Category>
+
+
+<h2>Categories</h2>
+<a href="@Url.Action("Create")" class="btn btn-primary">Create New Category</a>
+<a href="@Url.Action("Index", "Product")" class="btn btn-success">Go to Products</a>
+<a href="@Url.Action("Index", "Home")" class="btn btn-success">Go to Home</a>
+<h4>Page @ViewBag.Page of @ViewBag.TotalPages</h4>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.CategoryId })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = item.CategoryId })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="d-flex justify-content-between">
+    @if (ViewBag.Page > 1)
+    {
+        @Html.ActionLink("Previous", "Index", new { page = ViewBag.Page - 1 }, new { @class = "btn btn-primary" })
+    }
+
+    @if (ViewBag.Page < ViewBag.TotalPages)
+    {
+        @Html.ActionLink("Next", "Index", new { page = ViewBag.Page + 1 }, new { @class = "btn btn-primary" })
+    }
+</div>
